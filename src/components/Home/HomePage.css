@@ -1,0 +1,22 @@
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+.homepage-container .main-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: transparent;
+  background: linear-gradient(90deg, #8B4513, rgba(255, 217, 0, 0.768627451), #8B4513);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.homepage-container .tagline {
+  font-size: 2rem;
+  color: #8B4513;
+  margin-top: 10px;
+}

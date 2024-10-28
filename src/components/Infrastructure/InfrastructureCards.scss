@@ -1,0 +1,83 @@
+.infrastructure-overview {
+  padding-top: 40px;
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #4aace6, #263338);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-top: 20px;
+    margin-bottom: 20px;
+
+  }
+
+  .card-grid {
+    display: flex;
+    flex-wrap: wrap; // Allow wrapping of cards
+    justify-content: flex-start; // Align items to the left
+    gap: 20px; // Gap between cards
+  }
+
+  .info-card {
+    border: 1px solid rgba(0, 0, 0, 0.1); // Light border with transparency
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    width: calc(30% - 20px); // Default width for cards on larger screens
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative; // Allow absolute positioning for tooltip
+    overflow: hidden; // Ensure no overflow from content
+    background: rgba(255, 255, 255, 0.9); // White background with slight transparency
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+  
+    &:hover {
+      transform: scale(1.05); // Optional: Add hover effect
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); // Shadow on hover
+    }
+  
+  
+    // Add styles for text content
+    h5 {
+      margin-top: 10px;
+      color: #333; // Darker text for clarity
+      font-weight: bold;
+      font-size: 1.2em; // Increase font size for titles
+      margin-bottom: 10px; // Space below title
+    }
+
+    p {
+      font-size: 14px; // Adjust font size for readability
+      color: #070707; // Slightly lighter text color
+      margin-bottom: 15px; // Space below description
+    }
+
+    .quantity {
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 1.1em; // Increase font size for quantities
+      color: #030303; // Match the border color
+    }
+  }
+
+  // Mobile view styles
+  @media (max-width: 768px) {
+    .info-card {
+      width: calc(100% - 20px); // Full width for mobile devices
+      margin: 10px 0; // Adjust margin for mobile
+    }
+  }
+
+  // Laptop view styles
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .info-card {
+      width: calc(45% - 20px); // Adjust card width for tablet/laptop
+    }
+  }
+
+  // Desktop view styles (default)
+  @media (min-width: 1025px) {
+    .info-card {
+      width: calc(30% - 20px); // Default width for desktop
+    }
+  }
+}

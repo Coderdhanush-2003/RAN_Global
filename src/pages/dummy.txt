@@ -1,0 +1,44 @@
+
+
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import logo from '../img/logo.jpg'; // Ensure the path is correct based on your folder structure
+
+function App() {
+  return (
+    <div className="App">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <div className="container-fluid">
+           <img src={logo} alt="Logo" style={{ width: '150px', height: '80px', marginRight: '10px' }} />
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+              <li className="nav-item">
+                <navbar className="nav-link active" aria-current="page">Home</navbar>
+              </li>
+              <li className="nav-item">
+                <navbar className="nav-link">About Us</navbar>
+              </li>
+              <li className="nav-item">
+                <navbar className="nav-link" >Products</navbar>
+              </li>
+              <li className="nav-item">
+                <navbar className="nav-link" >Customers</navbar>
+              </li>
+              <li className="nav-item">
+                <navbar className="nav-link" >Infrastructure</navbar>
+              </li>
+              <li className="nav-item">
+                <navbar className="nav-link" >Contact</navbar>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+  );
+}
+
+export default App;

@@ -1,0 +1,26 @@
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; // Full height of the viewport
+
+
+    .main-title {
+        font-family: "Montserrat", sans-serif;
+      font-size: 4rem; // Adjust as necessary
+      font-weight: bold;
+      margin-bottom: 20px; // Space below title
+      color: transparent;
+      background: linear-gradient(90deg, #8B4513, #ffd900c4, #8B4513); // Brownish gold gradient
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+  
+    .tagline {
+      font-size: 2rem; // Adjust size as necessary
+      color: #8B4513; // Optional color for the tagline
+      margin-top: 10px; // Space above tagline
+    }
+  }
+  

@@ -1,0 +1,384 @@
+// styles.scss
+
+$primary-color: white;
+// Define your gradient colors
+$gradient-start: #fcfcfc94; // Change to your preferred starting color
+$gradient-end: #ffffff57;   // Change to your preferred ending color
+
+body {
+  background: linear-gradient(135deg, $gradient-start, $gradient-end);
+  color: white; // Change text color if needed
+  font-family: Arial, sans-serif; // Set your desired font
+}
+
+.navbar {
+  background-color: $primary-color;
+  padding: 1rem;
+
+  .nav-link {
+    color: rgb(24, 23, 23);
+    &:hover {
+      color: darken(rgb(255, 174, 0), 10%);
+    }
+  }
+}
+
+.nav-link.active {
+  font-weight: bold; /* Example style for active link */
+  color: #007bff; /* Change color for active link */
+}
+
+
+.usps-section {
+  padding: 10px 15px; // Padding for the section
+  background-color: #ffffff; // White background for a clean look
+
+  h2 {
+    font-size: 2.5rem; // Larger font size for the heading
+    margin-bottom: 40px; // Spacing below the heading
+    text-align: center;
+    color: #333; // Dark text color for contrast
+  }
+
+  .usp-card {
+    position: relative; // Set relative positioning for alignment
+    display: flex; // Flex layout for horizontal alignment
+    justify-content: center; // Center content
+    align-items: center; // Center align items
+    padding: 20px; // Padding inside the card
+    margin-bottom: 20px; // Space between cards
+    border: 1px solid #dee2e6; // Light border for definition
+    border-radius: 8px; // Rounded corners
+    background-color: white; // White background for contrast
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); // Soft shadow for depth
+    height: 200px; // Fixed height for all cards
+    text-align: center; // Center text horizontally
+    transition: box-shadow 0.3s; // Smooth transition for shadow on hover
+
+    &:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); // Enhanced shadow on hover
+    }
+
+    .usp-inner {
+      display: flex;
+      flex-direction: column; // Stack vertically
+      justify-content: center; // Center vertically
+      width: 100%; // Full width for inner content
+
+      .usp-category {
+        font-size: 1.5rem; // Font size for category
+        font-weight: bold; // Bold font
+        color: #495057; // Dark text color
+        margin-bottom: 10px; // Space below category
+      }
+
+      .usp-achievement {
+        font-size: 1.2rem; // Font size for achievement
+        color: #6c757d; // Lighter text color
+      }
+    }
+
+    // Decorative line connecting the category and achievement
+    .decorative-line {
+      position: absolute; // Absolute positioning
+      left: 3%; // Center align to the middle of the card
+      top: 0; // Align to the top of the card
+      width: 4px; // Width of the decorative line
+      height: 100%; // Full height of the card
+      background-color: #ffcc00; // Gold color for the line
+      transform: translateX(-50%); // Center the line on the card
+    }
+  }
+
+  @media (min-width: 768px) {
+    .usp-card {
+      height: 250px; // Increased height for desktop view
+    }
+  }
+}
+
+.vision-mission-section {
+  padding: 2rem;
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 12px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for the entire section */
+
+  .card {
+    margin-bottom: 1.5rem; /* Space between the cards */
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners for cards */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+
+    .card-body {
+      padding: 1.5rem; /* Inner padding for card content */
+
+      h2 {
+        font-size: 2rem; /* Heading size */
+        margin-bottom: 1rem; /* Space below the heading */
+      }
+
+      p, li {
+        font-size: 1.2rem; /* Text size */
+        line-height: 1.6; /* Line height for readability */
+        color: #555; /* Gray text color */
+      }
+
+      /* Apply the border effect only to the Vision card */
+      &:first-child {
+        position: relative; /* Needed for pseudo-elements */
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 5px; /* Width of the left border effect */
+          height: 100%;
+          background-color: #00796b; /* Border color for Vision */
+          border-radius: 8px 0 0 8px; /* Rounded corners on the left */
+          z-index: 0; /* Position behind the text */
+        }
+      }
+
+      /* Apply the border effect only to the Mission card */
+      &:last-child {
+        position: relative; /* Needed for pseudo-elements */
+        
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 5px; /* Width of the left border effect */
+          height: 100%;
+          background-color: #E0A75E; /* Border color for Mission */
+          border-radius: 8px 0 0 8px; /* Rounded corners on the left */
+          z-index: 0; /* Position behind the text */
+        }
+      }
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .card-body {
+      text-align: center; /* Center text on smaller screens */
+    }
+
+    h2 {
+      font-size: 1.5rem; /* Smaller heading size */
+    }
+
+    p, li {
+      font-size: 1rem; /* Smaller text size */
+    }
+  }
+}
+
+
+.value-system-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin: 40px 0;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Arial', sans-serif;
+}
+
+.value-item {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  }
+
+  &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #ffffff 0%, #d4d094 100%);
+      opacity: 0.5;
+      z-index: -1;
+  }
+
+  .icon {
+      font-size: 3rem;
+      color: #fffefe;
+      margin-bottom: 15px;
+  }
+
+  h3 {
+      font-size: 1.2rem;
+      color: #000;
+  }
+
+  p {
+      font-size: 0.9rem;
+      color: #080808;
+      margin: 0;
+  }
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .value-item {
+      width: 100%; /* Full width for mobile view */
+  }
+}
+
+
+.about-us {
+  background-color: #f9f9f9; // Light background
+  padding: 40px 20px; // Padding for the section
+  border-radius: 10px; // Rounded corners
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); // Soft shadow
+
+  .section-title {
+      text-align: center; // Center title
+      font-size: 2.5rem; // Larger title font size
+      margin-bottom: 30px; // Space below title
+      color: #333; // Title color
+  }
+
+  .company-info {
+      .row {
+          margin-bottom: 20px; // Space between rows
+      }
+
+      h3 {
+          color: #007bff; // Bootstrap primary color
+          font-weight: bold; // Bold headings
+          margin-bottom: 10px; // Space below headings
+      }
+
+      p {
+          color: #555; // Darker text color for descriptions
+          line-height: 1.5; // Improve readability
+      }
+  }
+
+  .certifications {
+      background-color: #e9ecef; // Light grey background for certifications
+      border-radius: 8px; // Rounded corners
+      padding: 15px; // Padding inside certification box
+      margin-top: 20px; // Space above certifications
+
+      h3 {
+          margin-top: 0; // Remove margin above certification title
+      }
+
+      p {
+          font-style: italic; // Italics for emphasis
+      }
+  }
+}
+
+
+.about-us-section {
+  background: rgba(0, 0, 0, 0.7) url('../src/img/img1.jpg') no-repeat center center;
+  background-size: cover;
+  color: #ffffff;
+  height: 85vh; 
+  width: 100vw;
+  display: flex;
+  justify-content: flex-start; // Align container to the left
+  align-items: center;
+  text-align: left;
+  overflow: hidden;
+  padding-left: 40px;
+
+  .container {
+    max-width: 95%;
+    
+  }
+
+  .about-us-title {
+    color: #ffcc00; // Highlight color
+    font-size: 2.85rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .about-us-text {
+    font-size: 3rem;
+    line-height: 1.5;
+    text-align: left;
+    font-weight: 300;
+    font-family: sans-serif;
+  }
+
+  // Mobile-specific styles
+  @media (max-width: 768px) {
+    height: auto; // Allow height to adjust to content on mobile
+    padding: 4rem 0 2rem 0; // Remove left padding
+
+    .container {
+      max-width: 100%; // Full width container on mobile
+    }
+
+    .about-us-title {
+      text-align: center;
+      font-size: 1.5rem; // Smaller title size on mobile
+    }
+
+    .about-us-text {
+      text-align: center;
+      font-size: 1.15rem; // Smaller text size on mobile
+      line-height: 1.3;
+    }
+  }
+}
+
+
+.reveal {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* You might include this in your App.scss or create a separate file for tooltip styles */
+[data-tooltip] {
+  position: relative;
+  cursor: pointer;
+}
+
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 5px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+

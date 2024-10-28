@@ -1,0 +1,83 @@
+
+.footer1 {
+  background-color: #EEEEEE;
+  color: #080808;
+  padding: 2rem 0;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .text-center {
+      margin-bottom: 2.5rem;
+
+      p.lead {
+        font-size: 2rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+      }
+
+      a.btn {
+        background-color: #247cdb; // Bootstrap primary color
+        color: #000000;
+
+        &:hover {
+          background-color: #0056b3; // Darker shade on hover
+        }
+      }
+    }
+
+    h5 {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      font-weight: bold;
+      cursor: pointer; // Indicate that it's clickable
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+
+        a {
+          color: #000000;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
+
+    .text-center {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+// Media Queries for mobile responsiveness
+@media (max-width: 768px) {
+  .footer1 .container {
+    flex-direction: column;
+    align-items: center;
+
+    h5 {
+      display: block; // Show toggle on mobile
+    }
+    
+    ul {
+      display: none; // Hide lists initially
+    }
+  }
+}

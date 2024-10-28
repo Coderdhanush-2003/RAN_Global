@@ -1,0 +1,129 @@
+.container-1 {
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+  
+  .brands-container {
+    padding:   10px; // Keeps padding around the container
+    margin: 0 auto; // Center the container on the page
+    margin-bottom: 0px;
+
+    transition: transform 0.3s;
+    padding-top: 10px;
+  
+    h2 {
+      font-size: 2.5rem; // Adjust font size as needed
+      font-weight:bold;
+      background: linear-gradient(135deg, #4aace6, #263338);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    .divider {
+      height: 3px; // Thickness of the line
+      background-color: #4A628A; // Color of the line
+      width: 25%; // Width of the line
+      margin: 20px auto; // Center the line and add margin
+      border-radius: 5px; // Rounded edges (optional)
+    }
+  
+    .brand-logo {
+      margin: 10px; // Adjusted margin for logos (reducing space)
+      text-align: center; // Center the logo within its column
+      padding-top: 20px;
+  
+      img {
+        width: 110px;
+        height: 60px;
+        object-fit: contain;
+        border-radius: 5px;
+        transition: transform 0.3s;
+       
+  
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+  
+ // Media Queries for Mobile View
+// Media Queries for Mobile View
+@media (max-width: 768px) {
+    .brands-container {
+      display: flex; // Enable flexbox for the container
+      flex-wrap: wrap; // Allow wrapping to create columns
+      justify-content: center; // Center the items horizontally
+      align-items: center; // Center align items
+  
+      h2 {
+        font-size: 2rem;
+        font-weight:bold;
+        background: linear-gradient(135deg, #4aace6, #263338);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+  
+      .divider {
+        width: 50%; // Increase width of the line for mobile
+      }
+  
+      .brand-logo {
+        display: flex; // Enable flexbox for logo containers
+        justify-content: center; // Center align logos
+        margin: 5px; // Margin for logos
+        align-items: center; // Center the content vertically
+        width: 50%; // Set width to 50% to create two columns
+  
+        img {
+            width: 110px;
+        height: 60px;
+        object-fit: contain;
+        border-radius: 5px;
+        transition: transform 0.3s;
+       
+        }
+      }
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .brands-container {
+      display: flex; // Keep flexbox for smaller screens
+      flex-wrap: wrap; // Allow wrapping for two columns
+      justify-content: center; // Center the items horizontally
+      align-items: center; // Center align items
+      padding: 20px; // Padding for smaller screens
+  
+      h2 {
+        font-size: 2.5rem;
+        font-weight:bold;
+        background: linear-gradient(135deg, #4aace6, #263338);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;// Further decrease font size for smaller screens
+      }
+  
+      .divider {
+        width: 60%; // Make the divider wider for very small screens
+      }
+  
+      .brand-logo {
+        
+        display: flex; // Enable flexbox for logo containers
+        justify-content: center; // Center align logos
+        margin: 5px; // Margin for logos
+        align-items: center; // Center the content vertically
+        width: 30%; // Set width to 50% for two columns
+  
+        img {
+            width: 110px;
+            height: 60px;
+            object-fit: contain;
+            border-radius: 5px;
+            transition: transform 0.3s;
+           
+        }
+      }
+    }
+  }
+  

@@ -13,6 +13,15 @@ const Footer = () => {
     contact: false,
   });
   
+  // Track screen width for responsive design
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Scroll to top on route change
   const location = useLocation();
   useEffect(() => {
@@ -26,113 +35,66 @@ const Footer = () => {
   return (
     <footer className="footer1">
       <div className="container">
-        {/* Center Text and Button */}
         <div className="text-center">
           <p className="lead">
-          Let's get you set up to deliver your best work!
+            Let's get you set up to deliver your best work!
           </p>
           <Link to="/ContactUs" className="btn">Contact</Link>
         </div>
 
-        {/* Five Columns */}
-        <div className="row mt-3 item-center">
-          <div className="col-12 col-md-2 mb-3">
-            {/* Toggle only on mobile */}
-            <h5
-              onClick={() => toggleSection('aboutUs')}
-              style={{ cursor: 'pointer', display: 'none' }} 
-            >
-              About Us <span>{openSections.aboutUs ? '▲' : '▼'}</span>
-            </h5>
-            <ul style={{ display: openSections.aboutUs ? 'block' : 'none' }}>
-              <li><Link to="/AboutUs">Our Story</Link></li>
-              <li><Link to="/AboutUs">Mission & Vision</Link></li>
-              <li><Link to="/AboutUs">Our Value System</Link></li>
-            </ul>
-            <h5 style={{ display: 'block' }}>About Us</h5> 
-            <ul>
-              <li><Link to="/AboutUs">Our Story</Link></li>
-              <li><Link to="/AboutUs">Mission & Vision</Link></li>
-              <li><Link to="/AboutUs">Our Value System</Link></li>
-            </ul>
-          </div>
-          <div className="col-12 col-md-2 mb-3">
-            <h5
-              onClick={() => toggleSection('products')}
-              style={{ cursor: 'pointer', display: 'none' }} // Hide toggle on larger screens
-            >
-              Products <span>{openSections.products ? '▲' : '▼'}</span>
-            </h5>
-            <ul style={{ display: openSections.products ? 'block' : 'none' }}>
-              <li><Link to="/Products">Stamping</Link></li>
-              <li><Link to="/Products">Tool Design</Link></li>
-              <li><Link to="/Products">Products</Link></li>
-            </ul>
-            <h5 style={{ display: 'block' }}>Products</h5> {/* Always display this on larger screens */}
-            <ul>
-              <li><Link to="/Products">Stamping</Link></li>
-              <li><Link to="/Products">Tool Design</Link></li>
-              <li><Link to="/Products">Products</Link></li>
-            </ul>
-          </div>
-          <div className="col-12 col-md-2 mb-3">
-            <h5
-              onClick={() => toggleSection('customers')}
-              style={{ cursor: 'pointer', display: 'none' }} // Hide toggle on larger screens
-            >
-              Customers <span>{openSections.customers ? '▲' : '▼'}</span>
-            </h5>
-            <ul style={{ display: openSections.customers ? 'block' : 'none' }}>
-              <li><Link to="/Customers">OEM's</Link></li>
-              <li><Link to="/Customers">Companies</Link></li>
-            </ul>
-            <h5 style={{ display: 'block' }}>Customers</h5> {/* Always display this on larger screens */}
-            <ul>
-              <li><Link to="/Customers">OEM's</Link></li>
-              <li><Link to="/Customers">Companies</Link></li>
-            </ul>
-          </div>
-          <div className="col-12 col-md-2 mb-3">
-            <h5
-              onClick={() => toggleSection('infrastructure')}
-              style={{ cursor: 'pointer', display: 'none' }} // Hide toggle on larger screens
-            >
-              Infrastructure <span>{openSections.infrastructure ? '▲' : '▼'}</span>
-            </h5>
-            <ul style={{ display: openSections.infrastructure ? 'block' : 'none' }}>
-              <li><Link to="/Infrastructure">Machinery Assets</Link></li>
-              <li><Link to="/Infrastructure">Power Presses</Link></li>
-              <li><Link to="/Infrastructure">Instrument Assets</Link></li>
-            </ul>
-            <h5 style={{ display: 'block' }}>Infrastructure</h5> {/* Always display this on larger screens */}
-            <ul>
-              <li><Link to="/Infrastructure">Machinery Assets</Link></li>
-              <li><Link to="/Infrastructure">Power Presses</Link></li>
-              <li><Link to="/Infrastructure">Instrument Assets</Link></li>
-            </ul>
-          </div>
-          <div className="col-12 col-md-2 mb-3">
-            <h5
-              onClick={() => toggleSection('contact')}
-              style={{ cursor: 'pointer', display: 'none' }} // Hide toggle on larger screens
-            >
-              Contact <span>{openSections.contact ? '▲' : '▼'}</span>
-            </h5>
-            <ul style={{ display: openSections.contact ? 'block' : 'none' }}>
-              <li><Link to="/ContactUs">Email Us</Link></li>
-              <li><Link to="/ContactUs">Support</Link></li>
-              <li><Link to="/ContactUs">Find Us</Link></li>
-            </ul>
-            <h5 style={{ display: 'block' }}>Contact</h5> {/* Always display this on larger screens */}
-            <ul>
-              <li><Link to="/ContactUs">Email Us</Link></li>
-              <li><Link to="/ContactUs">Support</Link></li>
-              <li><Link to="/ContactUs">Find Us</Link></li>
-            </ul>
-          </div>
+        <div className="row justify-content-center mt-4">
+          {['aboutUs', 'products', 'customers', 'infrastructure', 'contact'].map((section) => (
+            <div key={section} className="col-12 col-md-2 mb-3">
+              <h5
+                onClick={() => isMobile && toggleSection(section)}
+                style={{ cursor: isMobile ? 'pointer' : 'default' }}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)} 
+                {isMobile && (
+                  <span>
+                    <i className={`fas ${openSections[section] ? 'fa-chevron-up' : 'fa-chevron-down'}`}></i>
+                  </span>
+                )}
+              </h5>
+              <ul style={{ display: isMobile ? (openSections[section] ? 'block' : 'none') : 'block' }}>
+                {section === 'aboutUs' && (
+                  <>
+                    <li><Link to="/AboutUs">Our Story</Link></li>
+                    <li><Link to="/AboutUs">Mission & Vision</Link></li>
+                    <li><Link to="/AboutUs">Our Value System</Link></li>
+                  </>
+                )}
+                {section === 'products' && (
+                  <>
+                    <li><Link to="/Products">Stamping</Link></li>
+                    <li><Link to="/Products">Tool Design</Link></li>
+                  </>
+                )}
+                {section === 'customers' && (
+                  <>
+                    <li><Link to="/Customers">OEM's</Link></li>
+                    <li><Link to="/Customers">Companies</Link></li>
+                  </>
+                )}
+                {section === 'infrastructure' && (
+                  <>
+                    <li><Link to="/Infrastructure">Machinery Assets</Link></li>
+                    <li><Link to="/Infrastructure">Power Presses</Link></li>
+                    <li><Link to="/Infrastructure">Instrument Assets</Link></li>
+                  </>
+                )}
+                {section === 'contact' && (
+                  <>
+                    <li><Link to="/ContactUs">Email Us</Link></li>
+                    <li><Link to="/ContactUs">Support</Link></li>
+                    <li><Link to="/ContactUs">Find Us</Link></li>
+                  </>
+                )}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        {/* Social Media Icons */}
         <div className="text-center mt-4">
           <SocialMediaIcons />
         </div>
